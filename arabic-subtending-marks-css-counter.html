@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Testing an Arabic subtending mark (U+0602) in Noto Nastaliq Urdu</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <style>
+        @font-face {
+            font-family: "NotoNastaliqUrduWeb";
+            src: url("fonts/NotoNastaliqUrdu-Regular.woff2") format("woff2"),
+                 url("fonts/NotoNastaliqUrdu-Regular.woff") format("woff"),
+                 url("fonts/NotoNastaliqUrdu-Regular.ttf") format("truetype");
+        }
+
+        .noto-nastaliq {
+            font-family: "NotoNastaliqUrduWeb", sans-serif;
+        }
+
+        html {
+            font-size: 80%;
+        }
+
+        @media(min-width: 768px) {
+            html {
+                font-size: 90%;
+            }
+        }
+
+        @media(min-width: 900px) {
+            html {
+                font-size: 100%;
+            }
+        }
+
+        body {
+            font-family: sans-serif;
+            line-height: 1.5;
+            width: 90%;
+            max-width: 960px;
+            margin: 2em auto;
+        }
+
+        h1 {
+            font-size: 1.125rem;
+            margin: 0 0 1.3334em 0;
+        }
+        
+        h3 {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        p {
+            margin: 0 0 1.5em;
+        }
+        
+        .note {
+            font-size: 0.90625rem;
+            margin: 0 0 1.714286em 0;
+            padding: 1em;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            background-color: #f8f8f8;
+        }
+
+        .note ul {
+            list-style: none;
+        }
+
+        .note li {
+            padding: 0.75em 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .note li:last-child {
+            border-bottom: 0;
+        }
+
+        .note p {
+            margin-top: 0.125em;
+            margin-bottom: 0;
+            font-size: 0.9em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        tr {
+            border-bottom: 1px solid #ccc;
+        }
+
+        thead tr {
+            border-bottom: 2px solid #ccc;
+        }
+
+        th {
+            padding: 10px 15px;
+        }
+
+        td {
+            font-size: 1.25rem;
+            line-height: 3;
+            padding: 10px 15px;
+            vertical-align: top;
+        }
+
+        .regular,
+        .counter {
+            list-style: none;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .regular li {
+            unicode-bidi: bidi-override;
+        }
+        
+        .counter {
+            counter-reset: c;
+        }
+        
+        .counter li::before {
+            content: "؂"counter(c, persian);
+            counter-increment: c;
+            unicode-bidi: bidi-override;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Testing an Arabic subtending mark (U+0602) in Noto Nastaliq Urdu</h1>
+    
+    <div class="note">
+        <h3>Note:</h3>
+        <li>The test below uses U+0602 ARABIC FOOTNOTE MARKER, but the issue can be reproduced with any of the subtending marks (U+0600..U+0604).</li>
+        <li>Ignore the incorrect rendering for the digits sequence containing <mark class="noto-nastaliq" lang="ur">۶</mark>; it is a <a href="https://github.com/googlefonts/noto-fonts/issues/1620">bug</a> in the font itself.</li>
+    </div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 50%">In plain HTML</th>
+                <th style="width: 50%">In CSS counter</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ul class="regular noto-nastaliq" lang="ur" dir="rtl">
+                        <li>؂۱</li>
+                        <li>؂۲</li>
+                        <li>؂۳</li>
+                        <li>؂۴</li>
+                        <li>؂۵</li>
+                        <li>؂۶</li>
+                        <li>؂۷</li>
+                        <li>؂۸</li>
+                        <li>؂۹</li>
+                        <li>؂۱۰</li>
+                        <li>؂۱۱</li>
+                        <li>؂۱۲</li>
+                        <li>؂۱۳</li>
+                        <li>؂۱۴</li>
+                        <li>؂۱۵</li>
+                        <li>؂۱۶</li>
+                        <li>؂۱۷</li>
+                        <li>؂۱۸</li>
+                        <li>؂۱۹</li>
+                        <li>؂۲۰</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="counter noto-nastaliq" lang="ur" dir="rtl">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+</body>
+
+</html>
