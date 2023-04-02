@@ -13,7 +13,7 @@
         }
 
         .noto-nastaliq {
-            font-family: "NotoNastaliqUrduWeb", sans-serif;
+            font-family: "NotoNastaliqUrduWeb", serif;
         }
 
         html {
@@ -31,9 +31,13 @@
                 font-size: 100%;
             }
         }
+        
+        :root {
+            --system-ui: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
 
         body {
-            font-family: sans-serif;
+            font-family: var(--system-ui);
             line-height: 1.5;
             width: 90%;
             max-width: 960px;
