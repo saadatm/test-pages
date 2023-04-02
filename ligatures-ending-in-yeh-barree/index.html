@@ -33,6 +33,20 @@
             src: url("NotoNastaliqUrdu-Regular-3.002.ttf") format("truetype");
         }
         
+        @font-face {
+            font-family: nnu3005;
+            font-style: normal;
+            font-weight: 400;
+            src: url("NotoNastaliqUrdu-Regular-3.005.ttf") format("truetype");
+        }
+        
+        @font-face {
+            font-family: nnu3007;
+            font-style: normal;
+            font-weight: 400;
+            src: url("NotoNastaliqUrdu-Regular-3.007.ttf") format("truetype");
+        }
+        
         body {
             margin: 0;
         }
@@ -99,9 +113,17 @@
         .nnu3002 .ligatures {
             font-family: nnu3002, sans-serif;
         }
+        
+        .nnu3005 .ligatures {
+            font-family: nnu3005, sans-serif;
+        }
+        
+        .nnu3007 .ligatures {
+            font-family: nnu3007, sans-serif;
+        }
     </style>
 </head>
-<body class="nnu2001">
+<body class="nnu3007">
     <div dir="ltr" lang="en" class="options">
         <ul>
             <li>
@@ -112,7 +134,7 @@
             </li>
             <li>
                 <label>
-                    <input name="font-switcher" id="nnu2001" type="radio" checked onchange="switchFont(this); return false;" />
+                    <input name="font-switcher" id="nnu2001" type="radio" onchange="switchFont(this); return false;" />
                     Noto Nastaliq Urdu 2.001
                 </label>
             </li>
@@ -126,6 +148,18 @@
                 <label>
                     <input name="font-switcher" id="nnu3002" type="radio" onchange="switchFont(this); return false;" />
                     Noto Nastaliq Urdu 3.002
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input name="font-switcher" id="nnu3005" type="radio" onchange="switchFont(this); return false;" />
+                    Noto Nastaliq Urdu 3.005
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input name="font-switcher" id="nnu3007" type="radio" checked onchange="switchFont(this); return false;" />
+                    Noto Nastaliq Urdu 3.007
                 </label>
             </li>
         </ul>
