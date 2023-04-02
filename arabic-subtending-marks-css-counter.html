@@ -77,6 +77,8 @@
 
         .note ul {
             list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
         .note li {
@@ -152,8 +154,10 @@
     
     <div class="note">
         <h3>Note:</h3>
-        <li>The test below uses U+0602 ARABIC FOOTNOTE MARKER, but the issue can be reproduced with any of the subtending marks (U+0600..U+0604).</li>
-        <li>Ignore the incorrect rendering for the digits sequence containing <mark class="noto-nastaliq" lang="ur">۶</mark>; it is a <a href="https://github.com/googlefonts/noto-fonts/issues/1620">bug</a> in the font itself.</li>
+        <ul>
+            <li>The test below uses U+0602 ARABIC FOOTNOTE MARKER, but the issue can be reproduced with any of the subtending marks (U+0600..U+0604).</li>
+            <li>Ignore the incorrect rendering for the digits sequence containing <mark class="noto-nastaliq" lang="ur">۶</mark>; it is a <a href="https://github.com/googlefonts/noto-fonts/issues/1620">bug</a> in the font itself.</li>
+        </ul>
     </div>
     
     <table>
