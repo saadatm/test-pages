@@ -24,7 +24,11 @@
         .amiri {
             font-family: "AmiriWeb", serif;
         }
-        
+
+        .custom-font {
+            font-family: serif;
+        }
+
         :root {
             --system-ui: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         }
@@ -123,10 +127,16 @@
             font-size: 1rem;
             line-height: 1.5;
         }
-
-        td:first-child span {
+        
+        td:first-child input {
             display: block;
-            font-size: 0.8em;
+            width: 100%;
+            margin: 0.25em 0;
+        }
+
+        td:first-child small {
+            line-height: 1.5;
+            display: block;
         }
 
         .examples {
@@ -169,7 +179,10 @@
         </thead>
         <tbody>
             <tr>
-                <td>Noto Nastaliq Urdu<br><small>v3.007 <a href="https://github.com/notofonts/nastaliq/releases/tag/NotoNastaliqUrdu-v3.007">(source)</a></small></td>
+                <td>
+                    Noto Nastaliq Urdu
+                    <small>v3.007 <a href="https://github.com/notofonts/nastaliq/releases/tag/NotoNastaliqUrdu-v3.007">(source)</a></small>
+                </td>
                 <td>
                     <ul class="examples noto-nastaliq" dir="rtl" lang="ur">
                         <li>؀۱۲۳</li>
@@ -191,7 +204,10 @@
             </tr>
            
             <tr>
-                <td>Amiri<br><small>v1.000 <a href="https://github.com/aliftype/amiri/releases/tag/1.000">(source)</a></small></td>
+                <td>
+                    Amiri
+                    <small>v1.000 <a href="https://github.com/aliftype/amiri/releases/tag/1.000">(source)</a></small>
+                </td>
                 <td>
                     <ul class="examples amiri" dir="rtl" lang="ur">
                         <li>؀۱۲۳</li>
@@ -212,6 +228,31 @@
                 </td>
             </tr>
             
+            <tr>
+                <td>
+                    Custom
+                    <input id="input-custom-font" type="text" />
+                    <small>Type the name of the font in the box above. The font needs to be installed in your device.</small>
+                </td>
+                <td>
+                    <ul class="examples custom-font" dir="rtl" lang="ur">
+                        <li>؀۱۲۳</li>
+                        <li>؁۱۲۳۴</li>
+                        <li>؂۱۲</li>
+                        <li>؃۱۲۳</li>
+                        <li>؄۱۲۳۴</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="examples custom-font" dir="rtl" lang="ur">
+                        <li>۱۲۳؀</li>
+                        <li>۱۲۳۴؁</li>
+                        <li>۱۲؂</li>
+                        <li>۱۲۳؃</li>
+                        <li>۱۲۳۴؄</li>
+                    </ul>
+                </td>
+            </tr>
         </tbody>
     </table>
     
@@ -232,6 +273,17 @@
 
         const inputRloPdf = document.getElementById("input-rlo-pdf");
         inputRloPdf.addEventListener("change", cssBidiOverride);
+        
+        function applyCustomFont(e) {
+            fontName = e.target.value;
+            
+            document.querySelectorAll('.examples.custom-font').forEach(function(e) {
+                e.style.cssText = `font-family: '${fontName}'`;
+            });
+        }
+
+        const inputCustomFont = document.getElementById("input-custom-font");
+        inputCustomFont.addEventListener("input", applyCustomFont);
     </script>
 </body>
 
