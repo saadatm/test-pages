@@ -152,7 +152,7 @@
     <ul class="options">
         <li>
             <label>
-                <input id="input-rlo-pdf" type="checkbox" onchange="cssBidiOverride(this.checked); return false;" />
+                <input id="input-rlo-pdf" type="checkbox" />
                 Surround with U+202E RIGHT-TO-LEFT OVERRIDE and U+202C POP DIRECTIONAL FORMATTING
             </label>
             <p>(Done on this page via corresponding <a href="https://www.w3.org/TR/css-writing-modes-3/#bidi-control-codes-injection-table">CSS</a>.)</p>
@@ -216,7 +216,9 @@
     </table>
     
     <script>
-        function cssBidiOverride(isChecked) {
+        function cssBidiOverride(e) {
+            isChecked = e.target.checked;
+            
             if (isChecked) {
                 document.querySelectorAll('.examples li').forEach(function(e) {
                     e.style.cssText = "unicode-bidi: bidi-override";
@@ -227,6 +229,9 @@
                 });
             }
         }
+
+        const inputRloPdf = document.getElementById("input-rlo-pdf");
+        inputRloPdf.addEventListener("change", cssBidiOverride);
     </script>
 </body>
 
